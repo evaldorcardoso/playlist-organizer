@@ -5,7 +5,7 @@ import {
   createWebHistory,
 } from "vue-router";
 import Login from "@/views/Login.vue";
-import HelloWorld from "@/components/HelloWorld.vue";
+import Home from "@/components/Home.vue";
 import Callback from "@/views/Callback.vue";
 import helpers from "@/support/helpers";
 
@@ -26,7 +26,7 @@ const routes = [
   {
     path: "/",
     beforeEnter: isLogged,
-    component: HelloWorld,
+    component: Home,
     name: "Layout",
   },
   {
