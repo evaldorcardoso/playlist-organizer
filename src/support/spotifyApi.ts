@@ -1,35 +1,11 @@
 import { inject } from "vue";
 import { AxiosInstance, AxiosResponse } from "axios";
 import { AxiosInjectionKey } from "@/axios";
+import ISpotifyUser from "@/interface/ISpotifyUser";
+import ISpotifyUserPlaylists from "@/interface/ISpotifyUserPlaylists";
 
 interface IResponseData {
   data: any;
-}
-
-interface ISpotifyUser {
-  country: string;
-  display_name: string;
-  email: string;
-  explicit_content: any;
-  external_urls: {
-    spotify: string;
-  };
-  followers: {
-    href: any;
-    total: Number;
-  };
-  href: string;
-  id: string;
-  images: [
-    {
-      height: Number;
-      url: string;
-      width: Number;
-    }
-  ];
-  product: string;
-  type: string;
-  uri: string;
 }
 
 export function useProfile() {
@@ -43,7 +19,16 @@ export function useProfile() {
     );
   };
 
+  const getUserPlaylists = async (): Promise<
+    AxiosResponse<ISpotifyUserPlaylists> | undefined
+  > => {
+    return await $axios?.get<ISpotifyUserPlaylists>(
+      `${import.meta.env.VITE_API_URL}/me/playlists?limit=50`
+    );
+  };
+
   return {
+    getUserPlaylists,
     getProfile,
   };
 }

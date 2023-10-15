@@ -11,9 +11,13 @@ import { createPinia } from "pinia";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { aliases, fa } from "vuetify/iconsets/fa";
+import { VSkeletonLoader } from "vuetify/labs/VSkeletonLoader";
 
 const vuetify = createVuetify({
-  components,
+  components: {
+    ...components,
+    VSkeletonLoader,
+  },
   directives,
   icons: {
     defaultSet: "fa",

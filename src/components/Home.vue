@@ -39,7 +39,7 @@ import { ref } from 'vue';
       <v-divider></v-divider>
       <v-list dense nav>
         <v-list-item prepend-icon="fas fa-home" title="Dashboard" value="dashboard" @click="router.push('/')" />
-        <v-list-item prepend-icon="fas fa-book" title="My Library" value="library"></v-list-item>
+        <v-list-item prepend-icon="fas fa-book" title="My Library" value="library" @click="router.push('library')"></v-list-item>
         <v-list-item prepend-icon="fas fa-sign-out-alt" title="Logout" value="logout"></v-list-item>
       </v-list>
     </v-navigation-drawer>

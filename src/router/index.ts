@@ -7,6 +7,7 @@ import {
 import Login from "@/views/Login.vue";
 import Home from "@/components/Home.vue";
 import Callback from "@/views/Callback.vue";
+import Library from "@/views/Library.vue";
 import helpers from "@/support/helpers";
 
 const isLogged = (
@@ -28,6 +29,12 @@ const routes = [
     beforeEnter: isLogged,
     component: Home,
     name: "Layout",
+  },
+  {
+    path: "/library",
+    beforeEnter: isLogged,
+    component: Library,
+    name: "Library",
   },
   {
     path: "/login",
